@@ -1,0 +1,101 @@
+*{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.container{
+    /* margin: 300px; */
+    display: flex;
+    /* height: 600px; */
+    border: 2px black solid;
+    padding: 20px;
+    width: 1200px;
+    
+    background-image: url("task image/Très jolie.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.card{
+    height: auto;
+    /* border: 1px solid rgb(239, 239, 239); */
+    width: 280px;
+    padding: 0;
+
+    margin: 10px;
+
+    box-shadow: 5px 5px 5px rgba(38, 38, 38, 0.8);
+
+    border-radius: 16px;
+    background-color: white;
+}
+img{
+    height: 250px;
+    width: 280px;
+    border-radius: 12px 12px 0 0;
+}
+.content{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    margin: 20px 10px;
+
+    background-color: white;
+}
+.redtext{
+    color: rgb(254, 87, 87);
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.name{
+    font-weight: bold;
+    margin-top: 0;
+    font-size: 22px;
+}
+.para{
+    color: gray;
+    padding: 16px;
+}
+.extra, .extra2, .extra3{
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    color: white;
+    text-align: center;
+
+    border-radius: 0 0 16px 16px;
+    
+}
+.extra>div>p, .extra2>div>p, .extra3>div>p{
+    margin-bottom: 0;
+}
+.extra>div>p:first-child, .extra2>div>p:first-child, .extra3>div>p:first-child{
+    font-size: 22px;
+}
+.extra>div>p:last-child, .extra2>div>p:last-child, .extra3>div>p:last-child{
+    font-size: 10px;
+    padding-bottom: 18px;
+}
+.extra>div>p>sup, .extra2>div>p>sup, .extra3>div>p>sup{
+    font-size: 11px;
+}
+.extra{
+    background-color: rgb(186, 0, 186);
+}
+.extra2{
+    background-color: rgb(234, 148, 0);
+}
+.extra3{
+    background-color: rgb(255, 124, 192);
+}
+.extra > div:not(:last-child),
+.extra2 > div:not(:last-child),
+.extra3 > div:not(:last-child){
+    border-right: 0.25px solid rgba(0,0,0,0.3);
+}
+.extra,
+.extra2,
+.extra3{
+    border-top: 1px solid rgba(0,0,0,0.3);
+}
