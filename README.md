@@ -5,6 +5,6 @@ This repository contains my weekly web development tasks and projects.
 | Week | Project | Live Demo |
 |------|---------|-----------|
 | Week 1 | Cards | 🔗(https://vaishnavi-0605.github.io/Web-Dev-Week-1/) |
-| Week 2 | Medium Homepage Clone | 🔗 (https://vaishnavi-0605.github.io/Medium-Clone/) |
-| Week 3 | Add Project Name | 🔗 Add Link Here |
+| Week 2 | Medium Homepage Clone | 🔗(https://vaishnavi-0605.github.io/Medium-Clone/) |
+| Week 3 | Mini-Project Calculator | 🔗(https://vaishnavi-0605.github.io/calculator-basic/) |
 | Week 4 | Add Project Name | 🔗 Add Link Here |
