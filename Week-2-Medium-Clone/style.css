@@ -46,10 +46,28 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 .icon-burger i{
-    height: 20px;
     font-size: 22px;
+}
+.tooltip{
+    background-color: #242424;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 4px;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+.icon-burger:hover .tooltip{
+    opacity: 1;
+    visibility: visible;
 }
 .logo{
     font-size: 16px;
@@ -160,6 +178,11 @@ body{
     border-radius: 20px;
     margin-top: 12px;
 
+    transition: filter 0.1s;
+
+}
+.profile:hover{
+    filter: brightness(80%);
 }
 
 
@@ -180,20 +203,28 @@ body{
 .left-side {
     flex: 1;
 }
+
+
 /* ASIDE */
 
 .nav-side{
-    width: 240px;
+    width: 250px;
     height: 99vh;
     border-right: 2px solid #f9f9f9;
     font-size: 14px;
     font-weight: 500;
 
     position: fixed;
-     top: 56px;
-     left: 0;
+    top: 56px;
+        left: 0;
 
-     cursor: pointer;
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+.aside-col-links.closed .nav-side{
+    transform: translateX(-100%);
 }
 i, p{
     color: rgba(0, 0, 0, 0.6);
@@ -292,7 +323,7 @@ i, p{
 }
 .features>p:hover{
     color: black;
-}
+}       
 .features>p:first-child{
     border-bottom: 1px solid;
     color: rgba(0, 0, 0, 0.8);
@@ -391,6 +422,13 @@ i, p{
 }
 .right-image{
     padding: 40px;
+}
+.section-area{
+    transition: transform 0.3s ease;
+}
+
+.section-area.sidebar-closed {
+    transform: translateX(-80px);
 }
 
 /* RIGHT ASIDE */
@@ -601,5 +639,46 @@ i, p{
 }
 
 .right-aside::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, new Edge */
+    display: none;
+}
+
+.right-aside{
+    transition: transform 0.3s ease;
+}
+
+.right-aside.right-shift {
+    transform: translateX(-80px);
+}
+
+@media (max-width: 1200px) {
+    .right-aside {
+        display: none;
+    }
+
+    .main-area {
+        padding-left: 280px;
+    }
+}
+.nav-side {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 250px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.aside-col-links.closed .nav-side {
+    transform: translateX(-100%);
+}
+
+@media (max-width: 1200px) {
+    .content-area {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .main-area {
+        padding-left: 300px;
+    }
 }
