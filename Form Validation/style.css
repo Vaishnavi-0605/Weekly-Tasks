@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h2{
+    text-align: center;
+}
+body{
+    background: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    background: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label{
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0;
+}
+
+input,
+select{
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.radios{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+input[type="radio"]{
+    width:auto;
+    margin:0;
+    margin-right: 5px;
+}
+
+#submit-btn{
+    background: #337fd5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+#submit-btn:hover{
+    background: #67a5f6;
+}
+
+span{
+    color: red;
+    display: none;
+    margin-top: -8px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}

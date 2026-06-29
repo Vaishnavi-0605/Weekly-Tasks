@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Registration Form</h2>
+            <form action="">
+                <label>Name</label>
+                <input type="text" id="name">
+                <span id="name-err">*Enter a valid name.</span>
+
+                <label>Age</label>
+                <input type="number" id="age">
+                <span id="age-err">*Age must be 18 years or older.</span>
+
+                <label>Gender</label>
+                <div class="radios">
+                    <input type="radio" name="gender" value="F"> Female
+                    <input type="radio" name="gender" value="M"> Male
+                </div>
+                <span id="gender-err">*Please select your gender.</span>
+
+                <label>Contact</label>
+                <input type="number" id="contact">
+                <span id="contact-err">*Enter a valid 10-digit phone number.</span>
+
+                <label>Email</label>
+                <input type="email" id="email">
+                <span id="email-err">*Enter a valid email address.</span>
+
+                <label>ID Proof</label>
+                <select id="idproof">
+                    <option value="">None</option>
+                    <option>Aadhar Card</option>
+                    <option>PAN Card</option>
+                    <option>Passport</option>
+                    <option>Ration Card</option>
+                    <option>Other, please specify</option>
+                </select>
+                <span id="idproof-err">*Please select an ID proof.</span>
+
+                <input type="text" id="specdoc" placeholder="Specify">
+                <span id="specdoc-err">*Please specify the document type.</span>
+
+                <input type="file" id="file">
+                <span id="file-err">*Please upload your ID proof.</span>
+
+                <label>Address</label>
+                <div class="radios">
+                    <input type="radio" name="addr"> Plot
+                    <input type="radio" name="addr"> Apartment
+                </div>
+                <span id="address-err">*Please select an address type.</span>
+
+                <select id="floors">
+                    <option value="">1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>Other, please specify</option>
+                </select>
+                <span id="floors-err">*Please select the number of floors.</span>
+
+                <input type="number" id="floorno" placeholder="Floor Number">
+                <span id="floorno-err">*Enter a valid floor number.</span>
+
+                <label>Landmark</label>
+                <input type="text" id="landmark">
+                <span id="landmark-err">*Enter a nearby landmark.</span>
+
+                <label>Street No.</label>
+                <input type="text" id="street">
+                <span id="street-err">*Enter a valid street number.</span>
+
+                <label>City</label>
+                <input type="text" id="city">
+                <span id="city-err">*Enter a valid city name.</span>
+
+                <label>State</label>
+                <input type="text" id="state">
+                <span id="state-err">*Enter a valid state name.</span>
+
+                <label>Pin Code</label>
+                <input type="number" id="pin">
+                <span id="pin-err">*Enter a valid 6-digit PIN code.</span>
+
+                <label>Country</label>
+                <input type="text" id="country">
+                <span id="country-err">*Enter your country name.</span>
+
+                <label>Enter a Password</label>
+                <input type="password" id="pass">
+                <span id="pass-err">*Password must contain at least 8 characters.</span>
+                <p id="strength"></p>
+
+                <label>Confirm Password</label>
+                <input type="password" id="c-pass">
+                <span id="c-pass-err">*Passwords must match.</span>
+
+                <input type="submit" value="Register" id="submit-btn">
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
