@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-grid">
+            <h1>Today's list!</h1>
+            <form action="/addtask" method="post" id="formarea">
+                <input type="text" name="newtask" id="addtask" placeholder="Start a new task...">
+                <select name="priority" id="prio">
+                    <label>Priority</label>
+                    <option value="High">High</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Low">Low</option>
+                </select>
+                <button type="submit">
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+            </form>
+            <% tasks.filter(t => !t.completed).forEach(data=> { %>
+                <div class="todo">
+
+                    <div class="opta">
+                        <p class="tid"><%= data.tid %> </p>
+                        <form action="/<%= data.tid%>/check?_method=PUT" method="post" class="filterform">
+                                <input type="checkbox" name="checked" class="checkbox" onchange="this.form.submit();">
+                        </form>
+
+                        <label class="task"> 
+                            <%= data.task %> 
+                        </label>
+
+                        <form action="/<%= data.tid %>?_method=PUT" method="post" class="edit-form hidden">
+                            <input type="text" name="task" value="<%= data.task %>">
+
+                            <button type="submit" class="ed-btn">
+                                <i class="bi bi-check-lg"></i>
+                            </button>
+                        </form>
+
+                        <p class="date"> <%= data.date %> </p>
+                    </div>
+                    <p class="priority <%= data.priority.toLowerCase() %>"> <%= data.priority %></p>
+                    <div class="optb">
+                        <form>
+                            <button type="button" class="edit">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                        </form>
+                        <form action="/<%= data.tid %>?_method=DELETE" method="post">
+                            <button type="submit">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <div class="todo-grid show">
+            <h1>Completed Tasks</h1>
+            <% tasks.filter(t => t.completed).forEach(data=> { %>
+            
+                <div class="todo">
+                
+                    <div class="opta">
+                        <p class="tid"><%= data.tid %></p>
+                    
+                        <i class="bi bi-check-lg"></i>
+                    
+                        <label class="task"><%= data.task %></label>
+                    
+                        <p class="date"><%= data.date %></p>
+                    </div>
+                
+                    <p class="priority <%= data.priority.toLowerCase() %>">
+                        <%= data.priority %>
+                    </p>
+                    <form action="/<%= data.tid %>?_method=DELETE" method="post">
+                            <button type="submit">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </form>
+                
+                </div>
+            
+            <% }) %>
+        </div>
+    </div>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+*{
+    margin: 0;
+    /* padding: 0; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    position: relative;
+    background-color: #fff7fc;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("./images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.25;
+
+    z-index: -1;
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 240, 252, 0.3);
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+        circle,
+        rgba(175, 44, 110, 0.3),
+        transparent 60%
+    );
+    top: -150px;
+    right: -150px;
+    filter: blur(70px);
+    z-index: -1;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(
+        circle,
+        rgba(150, 90, 255, 0.25),
+        transparent 60%
+    );
+    bottom: -180px;
+    left: -180px;
+    filter: blur(90px);
+    z-index: -1;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #44224f;
+}
+
+.tid{
+    display: none;
+}
+
+.todo-grid{
+    width: 35%;
+     height: fit-content;
+    padding: 1rem;
+    margin: 2rem;
+
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(20px);
+
+    border-radius: 1rem;
+    border: 1px solid rgba(190,120,255,0.25);
+
+    box-shadow: 
+        0 15px 35px rgba(156, 91, 255, 0.18),
+        0 5px 15px rgba(255, 105, 180, 0.12);
+}
+
+.todo{
+    font-size: 1.2rem;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 16px;
+
+    padding: 1rem;
+
+    border-bottom: 1px dashed rgba(181, 91, 255, 0.35);
+
+    color: #4c3158;
+}
+.task{
+    font-size: 1.4rem;
+    color: #44224f;
+}
+
+.opta{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+    align-items: center;
+}
+
+.date{
+    color: rgba(93, 67, 110, 0.75);
+    margin-left: 20px;
+    grid-column: 2;
+    margin-left: 0;
+}
+
+.checkbox{
+    height: 1.2rem;
+    width: 1.5rem;
+    accent-color: #d76bff;
+}
+
+
+
+.optb{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+
+
+.priority{
+    text-align: center;
+    height: 1.5rem;
+    border-radius: 1rem;
+    font-weight: bold;
+
+    padding: 2px 12px;
+}
+
+
+.priority.high{
+    color: #d6005c;
+    background-color: rgba(255, 77, 166, 0.18);
+}
+
+
+.priority.moderate{
+    color: #8c35d1;
+    background-color: rgba(174, 97, 255, 0.18);
+}
+
+
+.priority.low{
+    color: #5b5bd6;
+    background-color: rgba(120,120,255,0.18);
+}
+
+
+
+#formarea{
+    margin: 12px;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 3fr .8fr .2fr;
+    gap: 12px;
+    padding: 1.2rem;
+}
+#addtask{
+    font-size: 1.2rem;
+    padding: 12px;
+    border-radius: 24px;
+    border: none;
+    border: 1px dashed #5a1691b2;
+    
+}
+button i{
+    font-size: 1.5rem;
+    color: #9d4edd;
+}
+
+#prio{
+    border-radius: 24px;
+    text-align: center;
+    font-size: 1.2rem;
+
+    background-color: #d5b0f4b0;
+    border: none;
+    border: .5px solid #431e5057;
+
+    /* height: 1.9rem; */
+}
+
+
+button{
+    all: unset;
+    cursor: pointer;
+
+    transition: all 0.7ms;
+    padding: 12px;
+    border-radius: 12px;
+}
+button:hover{
+    background-color: #840eb737;
+    i{
+        color: #fa6dc6;
+    }
+}
+
+.edit-form.hidden{
+    display: none;
+}
+.edit-form{
+    position: relative;
+    top: -30px;
+    margin-left: 26px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+    gap: 18px;
+    width: 170%;
+
+    backdrop-filter: blur(20px);
+    background-color: rgba(250, 225, 229, 0.779);
+    border-radius: 18px;
+
+    box-shadow: 
+        0 15px 35px rgba(156, 91, 255, 0.18),
+        0 5px 15px rgba(255, 105, 180, 0.12);
+}
+.edit-form input{
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 24px;
+    border: none;
+    border: 1px dashed #5a1691b2;
+}
+.edit-form i{
+    font-size: 1.8rem;
+    
+}
+.ed-btn{
+    all: unset;
+}
+
+.filterform{
+    box-sizing: content-box;
+    width: 24px;
+    grid-row: span 2;
+}
+.filterform button{
+    all: unset;
+}
