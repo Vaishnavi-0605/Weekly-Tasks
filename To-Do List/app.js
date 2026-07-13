@@ -10,90 +10,67 @@ app.use(express.static(path.join(__dirname)));
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 
-let tasks = [
-    {
-        task : "Complete to-do list",
-        tid : 'T01',
-        priority : 'High',
-        completed : false,
-        date : "2026-07-04"
-    },
-     {
-        task : "Solve three leetcode problems",
-        tid : 'T02',
-        priority : 'Moderate',
-        completed : false,
-        date : "2026-07-04"
-    },
-     {
-        task : "Work on ELMS project",
-        tid : 'T03',
-        priority : 'High',
-        completed : false,
-        date : "2026-07-04"
-    }, {
-        task : "Write chapter 32",
-        tid : 'T04',
-        priority : 'Low',
-        completed : false,
-        date : "2026-07-04"
-    }
-]
+let tdata = require('./db/taskschema');
+const { v4: uuidv4 } = require("uuid");
 
-app.get('/', (req,res)=>{
+const mongoose = require('mongoose');
+
+app.get('/', async (req,res)=>{
+    const tasks = await tdata.find();
     res.render('index', {tasks});
 });
 
-
-app.post('/addtask', (req,res)=>{
+app.post('/addtask', async (req,res)=>{
     let {newtask, priority} = req.body;
 
-    let newnum = tasks.length + 1;
-
-    let tid = "T"+String(newnum).padStart(2, '0');
-
-    let newdate = new Date().toISOString().split('T')[0];
-
-    let tasknew = {
+    await tdata.create({
         task : newtask,
-        tid : tid,
+        tid : uuidv4(),
         priority : priority,
-        completed : false,
-        date : newdate
-    }
-    tasks.push(tasknew);
-     
+        completed : false
+    })
+    console.log('Task added');
     res.redirect('/');
 });
 
-app.delete('/:id', (req,res) => {
+app.delete('/:id', async (req,res) => {
     let { id }= req.params;
-    tasks = tasks.filter(task =>task.tid != id);
+    await tdata.findByIdAndDelete(id);
     res.redirect('/');
 });
 
-app.put('/:id', (req,res)=>{
+app.put('/:id', async (req,res)=>{
     let {id} = req.params;
     let {task} = req.body;
 
-    let found = tasks.find(t=> t.tid === id);
-    found.task = task;
+    await tdata.findByIdAndUpdate(
+        id, {
+            task : task,
+        }
+    )
+
+    // let found = task.findByIdAndUpdate(t=> t.tid === id);
+    // found.task = task;
 
     res.redirect('/');
 });
 
-app.put('/:id/check',  (req,res)=>{
+app.put('/:id/check', async (req,res)=>{
     // console.log('CHECK ROUTE HIT');
     let {id} = req.params;
 
-    let found = tasks.find(t => t.tid === id);
+    let found = await tdata.findById(id);
     found.completed = !found.completed;
+    await found.save();
 
     res.redirect('/');
 })
 
-
-
+async function connectdb(){
+    await mongoose.connect('mongodb://127.0.0.1:27017/taskdb');
+    console.log('Connected to db');
+}
+connectdb();
 
 app.listen(3001, ()=>{
     console.log('To-Do list app is running on port 3001');

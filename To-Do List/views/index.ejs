@@ -29,7 +29,7 @@
 
                     <div class="opta">
                         <p class="tid"><%= data.tid %> </p>
-                        <form action="/<%= data.tid%>/check?_method=PUT" method="post" class="filterform">
+                        <form action="/<%= data._id%>/check?_method=PUT" method="post" class="filterform">
                                 <input type="checkbox" name="checked" class="checkbox" onchange="this.form.submit();">
                         </form>
 
@@ -37,7 +37,7 @@
                             <%= data.task %> 
                         </label>
 
-                        <form action="/<%= data.tid %>?_method=PUT" method="post" class="edit-form hidden">
+                        <form action="/<%= data._id %>?_method=PUT" method="post" class="edit-form hidden">
                             <input type="text" name="task" value="<%= data.task %>">
 
                             <button type="submit" class="ed-btn">
@@ -54,7 +54,7 @@
                                 <i class="bi bi-pencil"></i>
                             </button>
                         </form>
-                        <form action="/<%= data.tid %>?_method=DELETE" method="post">
+                        <form action="/<%= data._id %>?_method=DELETE" method="post">
                             <button type="submit">
                                 <i class="bi bi-trash3"></i>
                             </button>
@@ -71,19 +71,19 @@
                 <div class="todo">
                 
                     <div class="opta">
-                        <p class="tid"><%= data.tid %></p>
+                        <p class="tid"><%= data._id %></p>
                     
                         <i class="bi bi-check-lg"></i>
                     
                         <label class="task"><%= data.task %></label>
                     
-                        <p class="date"><%= data.date %></p>
+                        <p class="date"><%= data.date.toISOString().split('T')[0] %></p>
                     </div>
                 
                     <p class="priority <%= data.priority.toLowerCase() %>">
                         <%= data.priority %>
                     </p>
-                    <form action="/<%= data.tid %>?_method=DELETE" method="post">
+                    <form action="/<%= data._id %>?_method=DELETE" method="post">
                             <button type="submit">
                                 <i class="bi bi-trash3"></i>
                             </button>
